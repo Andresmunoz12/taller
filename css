@@ -1,0 +1,16 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(19, 146, 114);
+}
+.title{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    
+}
+.btm{
+        margin-left: 48%;
+        margin-top: 10%;
+        background-color: rgb(51, 87, 247);
+        padding: 30px;
+}
