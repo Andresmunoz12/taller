@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+     <h1>Bienvenidos al concurso</h1>
+
+  <button id="miBoton">Concurso</button>
+
+  <!-- Aquí se mostrarán los resultados -->
+  <div id="resultados"></div>
+
+  <script>
+    function main() {
+      const participantes = 10;
+      const nombres = [];
+
+      for (let i = 0; i < participantes; i++) {
+        const nombre = prompt(`Ingrese el nombre del participante #${i + 1}:`);
+        
+        if (!nombre) {
+          alert("Por favor ingresa un nombre válido.");
+          i--; // repetir esta iteración
+          continue;
+        }
+        nombres.push(nombre);
+      }
+
+      const resultadosDiv = document.getElementById("resultados");
+      resultadosDiv.innerHTML = "<h2>Resultados de la competencia:</h2>";
+
+      nombres.forEach((nombre, index) => {
+        const posicion = index + 1;
+        let premio = "";
+
+        switch (posicion) {
+          case 1:
+            premio = "1.000.000";
+            break;
+          case 2:
+            premio = "500.000";
+            break;
+          case 3:
+            premio = "250.000";
+            break;
+          case 4:
+            premio = "100.000";
+            break;
+          case 5:
+            premio = "Medalla";
+            break;
+          default:
+            premio = "Dulce";
+        }
+
+        // Crear un párrafo para cada participante
+        const p = document.createElement("p");
+        p.classList.add("participante");
+        p.textContent = `Participante: ${nombre} - Premio: ${premio}`;
+        resultadosDiv.appendChild(p);
+      });
+    }
+
+    document.getElementById("miBoton").addEventListener("click", main);
+  </script>
+</body>
+</html>
